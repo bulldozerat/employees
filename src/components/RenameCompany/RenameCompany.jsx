@@ -6,7 +6,7 @@ import { inject } from 'mobx-react';
 // Components
 import Modal from '../Modal';
 
-const RenameCompany = ({ companyName, companyId, companyStore }) => {
+const RenameCompany = ({ companyName, companyId, companyStore, closeModal }) => {
   const [inputCompantyValue, setInputCompantyValue] = useState('');
 
   const changeCompanyName = () => {
@@ -14,7 +14,7 @@ const RenameCompany = ({ companyName, companyId, companyStore }) => {
   };
 
   return (
-    <Modal right='0' title={companyName}>
+    <Modal right='0' title={companyName} closeModal={closeModal}>
       <div>Enter company name: </div>
       <input placeholder='' onChange={e => setInputCompantyValue(e.target.value)} />
       <button onClick={changeCompanyName}>Change name</button>

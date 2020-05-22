@@ -21,6 +21,7 @@ const Companies = ({ companyStore }) => {
   const [boxCompanyId, setBoxCompanyId] = useState('');
   const [modalEmployeeId, setModalEmployeeId] = useState('');
   const [modalJobArea, setModalJobArea] = useState('');
+  const [modalRenameId, setmodalRenameId] = useState('');
 
   const fetchCompaniesPageData = async () => {
     await companyStore.fetchCompaniesData();
@@ -44,10 +45,16 @@ const Companies = ({ companyStore }) => {
     setBoxCompanyId(companyId);
   };
 
+  const showRenameModal = id => {
+    hideAllModals();
+    setmodalRenameId(id);
+  };
+
   const hideAllModals = () => {
     setModalJobArea('');
     setModalEmployeeId('');
     setBoxCompanyId('');
+    setmodalRenameId('');
   };
 
   const { companies, employees, projects, companyAddresses } = companyStore;
@@ -62,8 +69,15 @@ const Companies = ({ companyStore }) => {
                 {company.name}
               </span>
               <span className='rename-wrapper'>
-                <FontAwesomeIcon icon={faPen} size='1x' className='rename-pen' />
-                <RenameCompany companyName={company.name} companyId={company.id} />
+                <FontAwesomeIcon
+                  icon={faPen}
+                  size='1x'
+                  className='rename-pen'
+                  onClick={() => showRenameModal(company.id)}
+                />
+                {company.id === modalRenameId && (
+                  <RenameCompany companyName={company.name} companyId={company.id} closeModal={hideAllModals} />
+                )}
               </span>
               {boxCompanyId && boxCompanyId === company.id && (
                 <CompanyNameBox

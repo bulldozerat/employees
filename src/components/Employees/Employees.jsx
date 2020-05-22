@@ -23,7 +23,10 @@ const Employees = ({
   modalJobArea,
   companyStore
 }) => {
-  const deleteEmployee = employeeId => companyStore.removeEmployee(employeeId);
+  const deleteEmployee = employeeId => {
+    hideAllModals();
+    companyStore.removeEmployee(employeeId);
+  };
 
   return employees.map((employee, index) => {
     if (employee.companyId !== companyId) return null;
