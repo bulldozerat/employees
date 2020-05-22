@@ -8,9 +8,9 @@ import ModalWrapper from './ModalWrapper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 
-const Modal = ({ children, title, closeModal, left, right }) => {
+const Modal = ({ children, title, closeModal, left, right, top }) => {
   return (
-    <ModalWrapper right={right} left={left}>
+    <ModalWrapper right={right} left={left} top={top}>
       <h3>{title}</h3>
       <div>{children}</div>
       <span onClick={closeModal} className='close'>

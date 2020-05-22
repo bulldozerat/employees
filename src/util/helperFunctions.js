@@ -17,3 +17,11 @@ export function getIdOfProjects(jobAreaEmployees, projects) {
 export function onlyUnique(value, index, self) {
   return self.indexOf(value) === index;
 }
+
+export function dateIsoParser(dateOfBirth) {
+  const d = new Date(dateOfBirth);
+  const month = d.getMonth();
+  const day = d.getDay();
+  const birthDate = `${d.getFullYear()} ${month < 10 ? '0' + month : month} ${day < 10 ? '0' + day : day}`;
+  return birthDate;
+}

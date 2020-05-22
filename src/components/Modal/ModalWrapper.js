@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 const ModalWrapper = styled.div`
   position: absolute;
-  top: 0;
+  top: ${props => props.top || 0};
   left: ${props => props.left || 'auto'};
   right: ${props => props.right || 'auto'};
   z-index: 1;

@@ -7,6 +7,7 @@ import { inject } from 'mobx-react';
 import { getIdOfProjects } from '../../util/helperFunctions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { dateIsoParser } from '../../util/helperFunctions';
 
 // Components
 import EmployeesWrapper from './EmployeesWrapper';
@@ -62,7 +63,7 @@ const Employees = ({
               <div>
                 {jobArea} {jobType}
               </div>
-              <div>{dateOfBirth}</div>
+              <div>{dateIsoParser(dateOfBirth)}</div>
               <hr />
               <div>Employee projects: </div>
               {employeeProjects.length ? (
