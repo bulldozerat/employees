@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components
@@ -8,13 +8,13 @@ import ModalWrapper from './ModalWrapper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 
-const Modal = ({ children, title, closeModal }) => {
+const Modal = ({ children, title, closeModal, left, right }) => {
   return (
-    <ModalWrapper className>
+    <ModalWrapper right={right} left={left}>
       <h3>{title}</h3>
       <div>{children}</div>
       <span onClick={closeModal} className='close'>
-        <FontAwesomeIcon icon={faWindowClose} size='10px' />
+        <FontAwesomeIcon icon={faWindowClose} size='1x' />
       </span>
     </ModalWrapper>
   );

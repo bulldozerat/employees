@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx';
+import { observable, action, toJS } from 'mobx';
 
 import companies from '../json-data/companies.json';
 import companyAddresses from '../json-data/company-addresses.json';
@@ -30,6 +30,14 @@ export class CompanyStore {
 
   @action removeEmployee(employeeId) {
     this.employees = this.employees.filter(employee => employee.id !== employeeId);
+  }
+
+  @action renameCompany(companyId, inputCompantyValue) {
+    this.companies.map(company => {
+      if (company.id === companyId) {
+        company.name = inputCompantyValue;
+      }
+    });
   }
 }
 

@@ -14,7 +14,7 @@ const CompanyNameBox = ({ companyId, companyAddresses, companyName, projects, cl
 
   return (
     <div>
-      <Modal title={companyName} closeModal={closeModal}>
+      <Modal title={companyName} closeModal={closeModal} left='1rem'>
         <div>Address: </div>
         <div>
           {address.country} {address.city}

@@ -41,7 +41,7 @@ const Employees = ({
           </span>
           <FontAwesomeIcon icon={faTrash} className='trash' onClick={() => deleteEmployee(employee.id)} />
           {modalJobArea === index && (
-            <Modal title={jobArea} closeModal={hideAllModals}>
+            <Modal title={jobArea} closeModal={hideAllModals} left='1rem'>
               <div>Workers in job area: {jobAreaEmployees.length}</div>
               <div>Project participation: {participationProjectsIds.length}</div>
             </Modal>

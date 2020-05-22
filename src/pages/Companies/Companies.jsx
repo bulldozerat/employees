@@ -62,8 +62,8 @@ const Companies = ({ companyStore }) => {
                 {company.name}
               </span>
               <span className='rename-wrapper'>
-                <FontAwesomeIcon icon={faPen} size='10px' className='rename-pen' />
-                <RenameCompany />
+                <FontAwesomeIcon icon={faPen} size='1x' className='rename-pen' />
+                <RenameCompany companyName={company.name} companyId={company.id} />
               </span>
               {boxCompanyId && boxCompanyId === company.id && (
                 <CompanyNameBox

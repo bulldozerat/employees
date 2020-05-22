@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const RenameCompany = () => {
-  return <h1>test</h1>;
+// Other
+import { inject } from 'mobx-react';
+
+// Components
+import Modal from '../Modal';
+
+const RenameCompany = ({ companyName, companyId, companyStore }) => {
+  const [inputCompantyValue, setInputCompantyValue] = useState('');
+
+  const changeCompanyName = () => {
+    companyStore.renameCompany(companyId, inputCompantyValue);
+  };
+
+  return (
+    <Modal right='0' title={companyName}>
+      <div>Enter company name: </div>
+      <input placeholder='' onChange={e => setInputCompantyValue(e.target.value)} />
+      <button onClick={changeCompanyName}>Change name</button>
+    </Modal>
+  );
 };
 
-export default RenameCompany;
+export default inject('companyStore')(RenameCompany);
