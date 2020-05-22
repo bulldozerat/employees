@@ -10,14 +10,17 @@ const RenameCompany = ({ companyName, companyId, companyStore, closeModal }) => 
   const [inputCompantyValue, setInputCompantyValue] = useState('');
 
   const changeCompanyName = () => {
+    closeModal();
     companyStore.renameCompany(companyId, inputCompantyValue);
   };
 
   return (
     <Modal right='0' title={companyName} closeModal={closeModal}>
-      <div>Enter company name: </div>
+      <div style={{ marginBottom: '0.5rem' }}>Enter company name: </div>
       <input placeholder='' onChange={e => setInputCompantyValue(e.target.value)} />
-      <button onClick={changeCompanyName}>Change name</button>
+      <button onClick={changeCompanyName} className='button' style={{ marginLeft: '0.5rem' }}>
+        Change name
+      </button>
     </Modal>
   );
 };
