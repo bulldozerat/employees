@@ -8,7 +8,7 @@ import { inject } from 'mobx-react';
 // Components
 import FormikFormWrapper from '../FormikFormWrapper';
 
-const AddEmployeeForm = ({ companyStore, companyId }) => {
+const AddEmployeeForm = ({ companyStore, companyId, closeModal }) => {
   return (
     <Formik
       initialValues={{
@@ -29,6 +29,7 @@ const AddEmployeeForm = ({ companyStore, companyId }) => {
       })}
       onSubmit={values => {
         companyStore.addNewEmploee(values, companyId);
+        closeModal();
       }}
       render={() => (
         <FormikFormWrapper>

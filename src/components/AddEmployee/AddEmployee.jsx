@@ -11,7 +11,7 @@ const AddEmployee = ({ showAddEmployeeModal, closeModal, modalAddEmployee, index
       <AddEmployeeWrapper onClick={() => showAddEmployeeModal(index)}>Add New Employee</AddEmployeeWrapper>
       {modalAddEmployee === index && (
         <Modal top='-5rem' title='Add New Employee' closeModal={closeModal}>
-          <AddEmployeeForm companyId={companyId} />
+          <AddEmployeeForm companyId={companyId} closeModal={closeModal} />
         </Modal>
       )}
     </AddEmployeeWrapper>
