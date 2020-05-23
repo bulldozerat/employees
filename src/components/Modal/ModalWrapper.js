@@ -17,7 +17,7 @@ const ModalWrapper = styled.div`
   .close {
     position: absolute;
     top: 1rem;
-    right: 1rem;
+    right: 1.5rem;
     cursor: pointer;
   }
 `;

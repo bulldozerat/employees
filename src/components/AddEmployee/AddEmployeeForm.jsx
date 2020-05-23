@@ -26,7 +26,9 @@ const AddEmployeeForm = () => {
         jobType: Yup.string().required('Job type is required'),
         jobTitle: Yup.string().required('Job title is required')
       })}
-      onSubmit={() => {}}
+      onSubmit={values => {
+        console.log(values);
+      }}
       render={() => (
         <FormikFormWrapper>
           <Form>
@@ -62,10 +64,7 @@ const AddEmployeeForm = () => {
             </div>
             <div className='form-group'>
               <button type='submit' className='btn btn-primary mr-2'>
-                Register
-              </button>
-              <button type='reset' className='btn btn-secondary'>
-                Reset
+                Add Employee
               </button>
             </div>
           </Form>

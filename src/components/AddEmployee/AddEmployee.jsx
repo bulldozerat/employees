@@ -9,7 +9,7 @@ const AddEmployee = () => {
   return (
     <AddEmployeeWrapper>
       <AddEmployeeWrapper>Add New Employee</AddEmployeeWrapper>
-      <Modal top='-5rem'>
+      <Modal top='-5rem' title='Add New Employee'>
         <AddEmployeeForm />
       </Modal>
     </AddEmployeeWrapper>
