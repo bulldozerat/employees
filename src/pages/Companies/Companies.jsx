@@ -22,6 +22,7 @@ const Companies = ({ companyStore }) => {
   const [modalEmployeeId, setModalEmployeeId] = useState('');
   const [modalJobArea, setModalJobArea] = useState('');
   const [modalRenameId, setmodalRenameId] = useState('');
+  const [modalAddEmployee, setModalAddEmployee] = useState('');
 
   const fetchCompaniesPageData = async () => {
     await companyStore.fetchCompaniesData();
@@ -50,11 +51,14 @@ const Companies = ({ companyStore }) => {
     setmodalRenameId(id);
   };
 
+  const showAddEmployeeModal = index => setModalAddEmployee(index);
+
   const hideAllModals = () => {
     setModalJobArea('');
     setModalEmployeeId('');
     setBoxCompanyId('');
     setmodalRenameId('');
+    setModalAddEmployee('');
   };
 
   const { companies, employees, projects, companyAddresses } = companyStore;
@@ -62,7 +66,7 @@ const Companies = ({ companyStore }) => {
   return (
     <CompaniesWrapper>
       {companies && employees && projects && companyAddresses ? (
-        companies.map(company => (
+        companies.map((company, index) => (
           <div key={company.id}>
             <div className='company-element'>
               <span onClick={() => showCompanyBoxModal(company.id)} className='company-name pointer'>
@@ -99,7 +103,12 @@ const Companies = ({ companyStore }) => {
               modalEmployeeId={modalEmployeeId}
               modalJobArea={modalJobArea}
             />
-            <AddEmployee />
+            <AddEmployee
+              modalAddEmployee={modalAddEmployee}
+              closeModal={hideAllModals}
+              index={index}
+              showAddEmployeeModal={showAddEmployeeModal}
+            />
           </div>
         ))
       ) : (

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 const AddEmployeeWrapper = styled.div`
   position: relative;
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 0.5rem;
   width: 100%;
   background: #aba493;
   text-align: center;
