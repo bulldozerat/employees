@@ -5,6 +5,9 @@ import companyAddresses from '../json-data/company-addresses.json';
 import employees from '../json-data/employees.json';
 import projects from '../json-data/projects.json';
 
+// Other
+import { v4 as uuidv4 } from 'uuid';
+
 export class CompanyStore {
   @observable companies = null;
   @observable companyAddresses = null;
@@ -38,6 +41,16 @@ export class CompanyStore {
         company.name = inputCompantyValue;
       }
     });
+  }
+
+  @action addNewEmploee(formValues, companyId) {
+    const newEmployeeData = {
+      id: uuidv4(),
+      companyId,
+      ...formValues
+    };
+
+    this.employees = [...this.employees, { ...newEmployeeData }];
   }
 }
 

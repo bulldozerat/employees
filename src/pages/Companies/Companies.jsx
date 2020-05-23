@@ -51,7 +51,10 @@ const Companies = ({ companyStore }) => {
     setmodalRenameId(id);
   };
 
-  const showAddEmployeeModal = index => setModalAddEmployee(index);
+  const showAddEmployeeModal = index => {
+    hideAllModals();
+    setModalAddEmployee(index);
+  };
 
   const hideAllModals = () => {
     setModalJobArea('');
@@ -108,6 +111,7 @@ const Companies = ({ companyStore }) => {
               closeModal={hideAllModals}
               index={index}
               showAddEmployeeModal={showAddEmployeeModal}
+              companyId={company.id}
             />
           </div>
         ))

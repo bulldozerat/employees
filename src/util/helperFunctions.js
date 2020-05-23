@@ -22,6 +22,6 @@ export function dateIsoParser(dateOfBirth) {
   const d = new Date(dateOfBirth);
   const month = d.getMonth();
   const day = d.getDay();
-  const birthDate = `${d.getFullYear()} ${month < 10 ? '0' + month : month} ${day < 10 ? '0' + day : day}`;
+  const birthDate = `${day < 10 ? '0' + day : day}-${month < 10 ? '0' + month : month}-${d.getFullYear()}`;
   return birthDate;
 }
