@@ -1,10 +1,5 @@
 import { observable, action, toJS } from 'mobx';
 
-import companies from '../json-data/companies.json';
-import companyAddresses from '../json-data/company-addresses.json';
-import employees from '../json-data/employees.json';
-import projects from '../json-data/projects.json';
-
 // Other
 import { v4 as uuidv4 } from 'uuid';
 
@@ -13,22 +8,29 @@ export class CompanyStore {
   @observable companyAddresses = null;
   @observable employees = null;
   @observable projects = null;
-  @observable companyAddress = null;
 
-  @action fetchCompaniesData() {
-    this.companies = companies;
+  @action async fetchCompaniesData() {
+    this.companies = await fetch('http://localhost:5000/companies')
+      .then(response => response.json())
+      .then(data => data);
   }
 
-  @action fetchCompanyAddressesData() {
-    this.companyAddresses = companyAddresses;
+  @action async fetchCompanyAddressesData() {
+    this.companyAddresses = await fetch('http://localhost:5000/companyAddresses')
+      .then(response => response.json())
+      .then(data => data);
   }
 
-  @action fetchEmployeesData() {
-    this.employees = employees;
+  @action async fetchEmployeesData() {
+    this.employees = await fetch('http://localhost:5000/employees')
+      .then(response => response.json())
+      .then(data => data);
   }
 
-  @action fetchProjectsData() {
-    this.projects = projects;
+  @action async fetchProjectsData() {
+    this.projects = await fetch('http://localhost:5000/projects')
+      .then(response => response.json())
+      .then(data => data);
   }
 
   @action removeEmployee(employeeId) {
