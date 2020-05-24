@@ -63,7 +63,7 @@ const Employees = ({
               <div>
                 {jobArea} {jobType}
               </div>
-              <div>{dateIsoParser(dateOfBirth)}</div>
+              <div>{dateOfBirth.legth === 10 ? dateOfBirth : dateIsoParser(dateOfBirth)}</div>
               <hr />
               <div>Employee projects: </div>
               {employeeProjects.length ? (
