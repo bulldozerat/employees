@@ -147,6 +147,25 @@ Companies.propTypes = {
         business: PropTypes.string,
         slogan: PropTypes.string
       })
+    ),
+    projects: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string,
+        department: PropTypes.string,
+        employeesId: PropTypes.array,
+        companyId: PropTypes.string
+      })
+    ),
+    companyAddresses: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        city: PropTypes.string,
+        country: PropTypes.string,
+        street: PropTypes.string,
+        state: PropTypes.string,
+        companyId: PropTypes.string
+      })
     )
   })
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Other
 import { inject } from 'mobx-react';
@@ -77,6 +78,14 @@ const AddEmployeeForm = ({ companyStore, companyId, closeModal }) => {
       )}
     />
   );
+};
+
+AddEmployeeForm.propTypes = {
+  closeModal: PropTypes.func,
+  companyId: PropTypes.string,
+  companyStore: PropTypes.shape({
+    addNewEmploee: PropTypes.func
+  })
 };
 
 export default inject('companyStore')(AddEmployeeForm);

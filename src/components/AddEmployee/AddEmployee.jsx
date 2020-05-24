@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 // Components
 import AddEmployeeWrapper from './AddEmployeeWrapper';
@@ -16,6 +17,14 @@ const AddEmployee = ({ showAddEmployeeModal, closeModal, modalAddEmployee, index
       )}
     </AddEmployeeWrapper>
   );
+};
+
+AddEmployee.propTypes = {
+  showAddEmployeeModal: PropTypes.func,
+  closeModal: PropTypes.func,
+  modalAddEmployee: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  index: PropTypes.number,
+  companyId: PropTypes.string
 };
 
 export default AddEmployee;

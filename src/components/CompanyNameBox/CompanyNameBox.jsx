@@ -34,10 +34,20 @@ const CompanyNameBox = ({ companyId, companyAddresses, companyName, projects, cl
   );
 };
 
-// TODO ADD PROPTYPES
 CompanyNameBox.propTypes = {
   companyId: PropTypes.string.isRequired,
-  companyAddresses: PropTypes.array
+  companyName: PropTypes.string,
+  closeModal: PropTypes.func,
+  companyAddresses: PropTypes.arrayOf(
+    PropTypes.shape({
+      companyId: PropTypes.string
+    })
+  ),
+  projects: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string
+    })
+  )
 };
 
 export default CompanyNameBox;

@@ -93,7 +93,16 @@ Employees.propTypes = {
       jobArea: PropTypes.string,
       jobType: PropTypes.string
     })
-  )
+  ),
+  projects: PropTypes.array,
+  hideAllModals: PropTypes.func,
+  showJobAreaModal: PropTypes.func,
+  showEmployeeNameModal: PropTypes.func,
+  modalEmployeeId: PropTypes.string,
+  modalJobArea: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  companyStore: PropTypes.shape({
+    removeEmployee: PropTypes.func
+  })
 };
 
 export default inject('companyStore')(Employees);

@@ -22,7 +22,11 @@ const Modal = ({ children, title, closeModal, left, right, top }) => {
 
 Modal.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+  closeModal: PropTypes.func,
+  left: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  right: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  top: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 export default Modal;

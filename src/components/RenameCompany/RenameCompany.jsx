@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 // Other
 import { inject } from 'mobx-react';
@@ -23,6 +24,15 @@ const RenameCompany = ({ companyName, companyId, companyStore, closeModal }) => 
       </button>
     </Modal>
   );
+};
+
+RenameCompany.propTypes = {
+  companyName: PropTypes.string,
+  companyId: PropTypes.string,
+  closeModal: PropTypes.func,
+  companyStore: PropTypes.shape({
+    closeModal: PropTypes.func
+  })
 };
 
 export default inject('companyStore')(RenameCompany);
