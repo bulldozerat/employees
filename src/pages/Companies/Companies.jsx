@@ -16,10 +16,6 @@ import RenameCompany from '../../components/RenameCompany';
 const Companies = ({ companyStore }) => {
   useEffect(() => {
     fetchCompaniesPageData();
-    document.addEventListener('click', () => hideAllModals());
-    return function cleanup() {
-      document.removeEventListener('click', () => hideAllModals());
-    };
   }, []);
 
   const [boxCompanyId, setBoxCompanyId] = useState('');

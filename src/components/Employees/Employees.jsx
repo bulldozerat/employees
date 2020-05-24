@@ -8,6 +8,7 @@ import { getIdOfProjects } from '../../util/helperFunctions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { dateIsoParser } from '../../util/helperFunctions';
+import { uid } from 'react-uid';
 
 // Components
 import EmployeesWrapper from './EmployeesWrapper';
@@ -67,7 +68,7 @@ const Employees = ({
               <hr />
               <div>Employee projects: </div>
               {employeeProjects.length ? (
-                employeeProjects.map(project => <div>{project.name}</div>)
+                employeeProjects.map(project => <div key={uid(project)}>{project.name}</div>)
               ) : (
                 <div>No data available for emploee projects</div>
               )}
